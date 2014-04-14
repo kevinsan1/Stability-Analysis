@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     11885,        383]
-NotebookOptionsPosition[     11234,        354]
-NotebookOutlinePosition[     11589,        370]
-CellTagsIndexPosition[     11546,        367]
+NotebookDataLength[     14808,        483]
+NotebookOptionsPosition[     14041,        450]
+NotebookOutlinePosition[     14396,        466]
+CellTagsIndexPosition[     14353,        463]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -283,23 +283,27 @@ Cell[BoxData[
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{
-  RowBox[{"dut", "+", 
-   RowBox[{"a", " ", 
-    RowBox[{
-     SuperscriptBox["u", 
-      TagBox[
-       RowBox[{"(", 
-        RowBox[{"1", ",", "0"}], ")"}],
-       Derivative],
-      MultilineFunction->None], "[", 
-     RowBox[{"x", ",", "t"}], "]"}]}]}], "/.", 
-  RowBox[{"{", 
+ RowBox[{"advectionEquationNumerical", "=", 
+  RowBox[{
    RowBox[{
-    RowBox[{"dt", "\[Rule]", "\[CapitalDelta]t"}], ",", 
-    RowBox[{"dx", "\[Rule]", "\[CapitalDelta]x"}]}], "}"}]}]], "Input",
+    RowBox[{"dut", "+", 
+     RowBox[{"a", " ", 
+      RowBox[{
+       SuperscriptBox["u", 
+        TagBox[
+         RowBox[{"(", 
+          RowBox[{"1", ",", "0"}], ")"}],
+         Derivative],
+        MultilineFunction->None], "[", 
+       RowBox[{"x", ",", "t"}], "]"}]}]}], "/.", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"dt", "\[Rule]", "\[CapitalDelta]t"}], ",", 
+      RowBox[{"dx", "\[Rule]", "\[CapitalDelta]x"}]}], "}"}]}], "//", 
+   "ExpandAll"}]}]], "Input",
  CellChangeTimes->{{3.606470053205492*^9, 3.606470062352462*^9}, {
-  3.6064701121288967`*^9, 3.60647012712744*^9}}],
+  3.6064701121288967`*^9, 3.60647012712744*^9}, {3.6064702446904507`*^9, 
+  3.6064703070027723`*^9}, {3.606470483939868*^9, 3.606470490202641*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -348,7 +352,99 @@ Cell[BoxData[
       Derivative],
      MultilineFunction->None], "[", 
     RowBox[{"x", ",", "t"}], "]"}]}]}]], "Output",
- CellChangeTimes->{3.6064700630000134`*^9, 3.6064701285924273`*^9}]
+ CellChangeTimes->{
+  3.6064700630000134`*^9, 3.6064701285924273`*^9, {3.606470246994976*^9, 
+   3.606470307316188*^9}, 3.60647049076396*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"advectionEquationNumerical", "/.", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["u", 
+       TagBox[
+        RowBox[{"(", 
+         RowBox[{"0", ",", "2"}], ")"}],
+        Derivative],
+       MultilineFunction->None], "[", 
+      RowBox[{"x", ",", "t"}], "]"}], "\[Rule]", 
+     SubscriptBox["u", "tt"]}], ",", 
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["u", 
+       TagBox[
+        RowBox[{"(", 
+         RowBox[{"0", ",", "3"}], ")"}],
+        Derivative],
+       MultilineFunction->None], "[", 
+      RowBox[{"x", ",", "t"}], "]"}], "\[Rule]", 
+     SubscriptBox["u", "ttt"]}], ",", 
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["u", 
+       TagBox[
+        RowBox[{"(", 
+         RowBox[{"0", ",", "1"}], ")"}],
+        Derivative],
+       MultilineFunction->None], "[", 
+      RowBox[{"x", ",", "t"}], "]"}], "\[Rule]", 
+     SubscriptBox["u", "t"]}], ",", 
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["u", 
+       TagBox[
+        RowBox[{"(", 
+         RowBox[{"1", ",", "0"}], ")"}],
+        Derivative],
+       MultilineFunction->None], "[", 
+      RowBox[{"x", ",", "t"}], "]"}], "\[Rule]", 
+     SubscriptBox["u", "x"]}], ",", 
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["u", 
+       TagBox[
+        RowBox[{"(", 
+         RowBox[{"2", ",", "0"}], ")"}],
+        Derivative],
+       MultilineFunction->None], "[", 
+      RowBox[{"x", ",", "t"}], "]"}], "\[Rule]", 
+     SubscriptBox["u", "xx"]}], ",", 
+    RowBox[{
+     RowBox[{
+      SuperscriptBox["u", 
+       TagBox[
+        RowBox[{"(", 
+         RowBox[{"3", ",", "0"}], ")"}],
+        Derivative],
+       MultilineFunction->None], "[", 
+      RowBox[{"x", ",", "t"}], "]"}], "\[Rule]", 
+     SubscriptBox["u", "xxx"]}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.6064704936063347`*^9, 3.606470573753446*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", 
+   FractionBox[
+    RowBox[{"\[CapitalDelta]t", " ", 
+     SubscriptBox["u", "tt"]}], "2"]}], "-", 
+  FractionBox[
+   RowBox[{
+    SuperscriptBox["\[CapitalDelta]t", "2"], " ", 
+    SubscriptBox["u", "ttt"]}], "6"], "+", 
+  FractionBox[
+   RowBox[{
+    SuperscriptBox["\[CapitalDelta]x", "2"], " ", 
+    SubscriptBox["u", "xx"]}], 
+   RowBox[{"2", " ", "\[CapitalDelta]t"}]], "-", 
+  RowBox[{
+   FractionBox["1", "6"], " ", "a", " ", 
+   SuperscriptBox["\[CapitalDelta]x", "2"], " ", 
+   SubscriptBox["u", "xxx"]}]}]], "Output",
+ CellChangeTimes->{3.606470517932275*^9, 3.60647057527822*^9}]
 }, Open  ]]
 }, Open  ]]
 },
@@ -381,8 +477,12 @@ Cell[5791, 182, 1292, 29, 28, "Input"],
 Cell[7086, 213, 2170, 66, 50, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[9293, 284, 561, 17, 32, "Input"],
-Cell[9857, 303, 1349, 47, 50, "Output"]
+Cell[9293, 284, 773, 21, 32, "Input"],
+Cell[10069, 307, 1423, 49, 50, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11529, 361, 1850, 64, 57, "Input"],
+Cell[13382, 427, 631, 19, 84, "Output"]
 }, Open  ]]
 }, Open  ]]
 }
