@@ -7,9 +7,9 @@ L = 10.;
 dx = L/N;               % Grid spacing
 H = 1;
 g = 9.8;
-c = sqrt(g*H);        % Wave speed
+c = g*(H);        % Wave speed
 tau = dx/c;             % Time Step
-coeff = -c*tau/(2*dx);
+coeff = -tau/(2*dx);
 nStep = L/(c*tau);
 i = 1:N;
 %% Boundary Conditions
@@ -30,9 +30,9 @@ flux = (1/2*g*h.^2 + (m.^2)./h);
 for iStep=1:nStep
     hOld=h;
     mOld=m;
+    h(1:N) = .5*(hOld(ip)+hOld(im)) + coeff*(mOld(ip)-mOld(im));
     flux = (1/2*g*hOld.^2 + (mOld.^2)./hOld);
-    h(1:N) = .5*(hOld(ip)+hOld(im)) + 1/c*coeff*(mOld(ip)-mOld(im));
-    m(1:N) = .5*(mOld(ip)+mOld(im)) + c*coeff*(flux(ip)-flux(im));
+    m(1:N) = .5*(mOld(ip)+mOld(im)) + coeff*(flux(ip)-flux(im));
     hplot(:,iStep) = h(:);
     mplot(:,iStep) = m(:);
 end
@@ -47,12 +47,12 @@ title(sprintf('$h(x,t)$'),...
 %%
 figure(2)
 
-for ip = 1:4:nStep
+for ip = 1:16:nStep
+    clf;
     plot(x,hplot(:,1))
     hold on;
     plot(x,hplot(:,ip),'-');
     pause(.3)
-    clf
 end
 %%
 % printYesNo = 1;
